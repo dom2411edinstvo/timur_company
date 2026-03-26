@@ -523,13 +523,6 @@
       aspect-ratio: 4/3;
       background: var(--dark3);
     }
-    .work-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-    .work-card:hover img { transform: scale(1.05); }
     .work-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -546,18 +539,14 @@
       color: #9ca3af;
     }
     /* Placeholder для работ без изображений */
-    .work-placeholder {
+    .work-card img {
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 16px;
-      background: linear-gradient(135deg, #1f2937, #374151);
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
     }
-    .work-placeholder .big-icon { font-size: 80px; }
-    .work-placeholder span { font-size: 14px; color: #9ca3af; }
+    .work-card:hover img { transform: scale(1.05); }
 
     /* ===== ADVANTAGES ===== */
     .advantages { background: var(--dark); }
@@ -797,6 +786,12 @@
       flex-direction: column;
       gap: 12px;
       z-index: 999;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .float-btns.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
     .float-btn {
       width: 54px;
@@ -1106,40 +1101,28 @@
     <p class="section-sub">Строительство и монтаж промышленных и гражданских объектов по всей России</p>
     <div class="works-grid">
       <div class="work-card">
-        <div class="work-placeholder">
-          <div class="big-icon">🔥</div>
-          <span>Сварочные работы</span>
-        </div>
+        <img src="1.png" alt="Сварочные работы" loading="lazy" />
         <div class="work-overlay">
           <h3>Сварочные работы</h3>
           <p>Монтаж трубопроводов и металлоконструкций на нефтяных объектах</p>
         </div>
       </div>
       <div class="work-card">
-        <div class="work-placeholder">
-          <div class="big-icon">🏗️</div>
-          <span>Монтаж конструкций</span>
-        </div>
+        <img src="2.png" alt="Монтаж конструкций" loading="lazy" />
         <div class="work-overlay">
           <h3>Монтаж конструкций</h3>
           <p>Строительство промышленных зданий и сооружений</p>
         </div>
       </div>
       <div class="work-card">
-        <div class="work-placeholder">
-          <div class="big-icon">🎨</div>
-          <span>Отделочные работы</span>
-        </div>
+        <img src="3.png" alt="Отделочные работы" loading="lazy" />
         <div class="work-overlay">
           <h3>Отделочные работы</h3>
           <p>Чистовая и черновая отделка жилых и коммерческих объектов</p>
         </div>
       </div>
       <div class="work-card">
-        <div class="work-placeholder">
-          <div class="big-icon">📋</div>
-          <span>Строительный надзор</span>
-        </div>
+        <img src="4.png" alt="Строительный надзор" loading="lazy" />
         <div class="work-overlay">
           <h3>Строительный надзор</h3>
           <p>Контроль качества и технический надзор на объектах</p>
@@ -1328,6 +1311,20 @@
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+
+  // Скрываем плавающие кнопки когда виден футер
+  var floatBtns = document.querySelector('.float-btns');
+  var footer = document.querySelector('footer');
+  var footerObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        floatBtns.classList.add('hidden');
+      } else {
+        floatBtns.classList.remove('hidden');
+      }
+    });
+  }, { threshold: 0.05 });
+  if (footer) footerObserver.observe(footer);
 </script>
 
 </body>
