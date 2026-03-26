@@ -721,9 +721,61 @@
     /* ===== FOOTER ===== */
     footer {
       background: #0a0f1a;
-      padding: 30px 20px;
-      border-top: 1px solid #1f2937;
+      padding: 40px 20px 0;
+      border-top: 2px solid #1f2937;
     }
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .footer-top p { color: #4b5563; font-size: 13px; }
+    .footer-top .orange { color: var(--orange); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: #374151;
+    }
+    .footer-dev {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .footer-dev-label {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .footer-dev a {
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .footer-dev a:hover { opacity: 0.75; }
+    .footer-dev .link-tg   { color: #229ED9; }
+    .footer-dev .link-max  { color: #FF5C00; }
+    .footer-dev .link-vk   { color: #0077FF; }
+    .footer-dev-sep {
+      color: #374151;
+      font-size: 12px;
+    }
+    /* ===== FOOTER INNER (legacy compat) ===== */
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -1200,14 +1252,47 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
+  <div class="footer-top">
     <div>
-      <p>© 2025 <span class="orange">Тимур и его команда</span> — Строительная фирма</p>
-      <p style="margin-top:4px;">г. Нефтекамск · Работаем по всей России</p>
+      <p style="font-size:15px; color:#e5e7eb; font-weight:700; margin-bottom:6px;">
+        🏗️ <span class="orange">Тимур и его команда</span>
+      </p>
+      <p>Строительная фирма · г. Нефтекамск</p>
+      <p style="margin-top:4px;">Работаем по всей России · Вахта</p>
     </div>
-    <div style="text-align:right;">
+    <div>
+      <p style="color:#9ca3af; margin-bottom:6px;">Контакты</p>
       <p>📞 <a href="tel:+79636683775" style="color: var(--orange);">+7 963 668-37-75</a></p>
-      <p style="margin-top:4px; color: #6b7280;">Зарплата без задержек — гарантируем!</p>
+      <p style="margin-top:4px;">
+        <a href="https://wa.me/79636683775" target="_blank" style="color:#25D366;">WhatsApp</a>
+        &nbsp;·&nbsp;
+        <a href="https://t.me/+79636683775" target="_blank" style="color:#229ED9;">Telegram</a>
+      </p>
+    </div>
+    <div>
+      <p style="color:#9ca3af; margin-bottom:6px;">Вакансии</p>
+      <p>Монтажники · Сварщики</p>
+      <p style="margin-top:4px;">Отделочники · Разнорабочие</p>
+      <p style="margin-top:4px;">Начальники участков</p>
+    </div>
+    <div>
+      <p style="color:#9ca3af; margin-bottom:6px;">Условия</p>
+      <p>✅ Зарплата без задержек</p>
+      <p style="margin-top:4px;">✅ Официальное трудоустройство</p>
+      <p style="margin-top:4px;">✅ Возраст 21–60 лет</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Тимур и его команда — Все права защищены</p>
+
+    <div class="footer-dev">
+      <span class="footer-dev-label">Разработчик сайта —</span>
+      <a href="https://t.me/samadhi2411" target="_blank" class="link-tg">samadhi2411</a>
+      <span class="footer-dev-sep">·</span>
+      <span class="footer-dev-label">Нужен сайт? Пиши →</span>
+      <a href="https://max.ru/u/f9LHodD0cOKDY1emmUrupKlXJll32btrvJyZe3d0CeMmvy_rHDa2TWoayQc" target="_blank" class="link-max">MAX</a>
+      <a href="https://vk.com/samadhi2411" target="_blank" class="link-vk">ВКонтакте</a>
     </div>
   </div>
 </footer>
